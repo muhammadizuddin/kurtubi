@@ -1,0 +1,122 @@
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Animasi Background Bergerak */
+@keyframes bg-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bg-primary {
+    background: linear-gradient(-45deg, #007bff, #0056b3, #5a6268, #343a40);
+    background-size: 400% 400%;
+    animation: bg-animation 15s ease infinite;
+    color: white;
+}
+
+/* Efek Parallax Sederhana */
+#beranda {
+    background-attachment: fixed;
+    perspective: 1px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+/* Animasi Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card {
+    transition: all 0.5s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.7s;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Animasi Teks */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInUp {
+    animation: fadeInUp 1s;
+}
+
+#kontak form {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #343a40 !important;
+}
+
+/* Tombol WhatsApp */
+.btn-success {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #128C7E !important;
+    transform: scale(1.05);
+}
+
+/* Responsif dan Mobile */
+@media (max-width: 768px) {
+    #beranda {
+        height: 60vh;
+    }
+}
